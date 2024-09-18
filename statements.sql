@@ -63,12 +63,45 @@
 
 /* Relación tipo N:M */
 -- PASO 1
--- Tu código aquí
+-- CREATE TABLE usuarios_categorias (
+--     id_usuario_categoria INT AUTO_INCREMENT PRIMARY KEY,
+--     id_usuario INT,
+--     id_categoria INT,
+--     FOREIGN KEY (id_usuario) REFERENCES usuarios_2(id_usuario),
+--     FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+-- );
 
 
 -- PASO 2
--- Tu código aquí
+-- INSERT INTO usuarios_categorias (id_usuario, id_categoria) VALUES
+-- (1, 1), (1, 2), (1, 3),   
+-- (2, 4), (2, 5),           
+-- (3, 6), (3, 7),
+-- (4, 8), (4, 9), (4, 10), 
+-- (5, 1), (5, 3),
+-- (6, 2), (6, 4),    
+-- (7, 5), (7, 6),            
+-- (8, 7), (8, 8),        
+-- (9, 9), (9, 10),        
+-- (10, 1), (10, 2),  
+-- (11, 3), (11, 4),        
+-- (12, 5), (12, 6),      
+-- (13, 7), (13, 8),         
+-- (14, 9), (14, 10),       
+-- (15, 1), (15, 2),         
+-- (16, 3), (16, 4),         
+-- (17, 5), (17, 6),        
+-- (18, 7), (18, 8),        
+-- (19, 9), (19, 10),        
+-- (20, 1), (20, 2); 
 
 
 -- PASO 3
--- Tu código aquí
+-- SELECT usuarios_2.id_usuario, usuarios_2.nombre, usuarios_2.apellido, usuarios_2.email, usuarios_2.edad, roles.nombre_rol, categorias.nombre_categoria
+-- FROM usuarios_2
+-- JOIN roles 
+-- ON usuarios_2.id_rol = roles.id_rol
+-- JOIN usuarios_categorias 
+-- ON usuarios_2.id_usuario = usuarios_categorias.id_usuario
+-- JOIN categorias 
+-- ON usuarios_categorias.id_categoria = categorias.id_categoria;
