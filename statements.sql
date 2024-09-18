@@ -17,7 +17,7 @@
 
 
 -- PASO 3
--- ALTER TABLE usuarios ADD COLUMN id_rol INT;
+-- ALTER TABLE usuarios_2 ADD COLUMN id_rol INT;
 
 -- UPDATE usuarios_2 SET id_rol = 1 WHERE id_usuario <= 5;
 -- UPDATE usuarios_2 SET id_rol = 2 WHERE id_usuario BETWEEN 6 AND 10;
@@ -43,15 +43,23 @@
 
 
 -- PASO 2
--- Tu código aquí
+-- ALTER TABLE usuarios_2 ADD COLUMN id_categoria INT;
 
 
 -- PASO 3
--- Tu código aquí
+-- UPDATE usuarios_2 SET id_categoria = 1 WHERE id_usuario IN (1, 5, 9, 13, 17); 
+-- UPDATE usuarios_2 SET id_categoria = 2 WHERE id_usuario IN (2, 6, 10, 14, 18);
+-- UPDATE usuarios_2 SET id_categoria = 3 WHERE id_usuario IN (3, 7, 11, 15, 19);
+-- UPDATE usuarios_2 SET id_categoria = 4 WHERE id_usuario IN (4, 8, 12, 16, 20); 
 
 
 -- PASO 4
--- Tu código aquí
+-- SELECT usuarios_2.id_usuario, usuarios_2.nombre, usuarios_2.apellido, usuarios_2.email, usuarios_2.edad, roles.nombre_rol, categorias.nombre_categoria
+-- FROM  usuarios_2
+-- JOIN roles
+-- ON usuarios_2.id_rol = roles.id_rol
+-- JOIN categorias
+-- ON usuarios_2.id_categoria = categorias.id_categoria;
 
 /* Relación tipo N:M */
 -- PASO 1
