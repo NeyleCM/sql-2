@@ -17,21 +17,29 @@
 
 
 -- PASO 3
--- ALTER TABLE usuarios ADD FOREIGN KEY (id_rol) REFERENCES roles(id_rol);
+-- ALTER TABLE usuarios ADD COLUMN id_rol INT;
 
--- UPDATE usuarios_2 SET id_rol = 1 WHERE id = 1;
--- UPDATE usuarios_2 SET id_rol = 2 WHERE id = 2;
--- UPDATE usuarios_2 SET id_rol = 3 WHERE id = 3;
--- UPDATE usuarios_2 SET id_rol = 4 WHERE id = 4;
+-- UPDATE usuarios_2 SET id_rol = 1 WHERE id_usuario <= 5;
+-- UPDATE usuarios_2 SET id_rol = 2 WHERE id_usuario BETWEEN 6 AND 10;
+-- UPDATE usuarios_2 SET id_rol = 3 WHERE id_usuario BETWEEN 11 AND 15;
+-- UPDATE usuarios_2 SET id_rol = 4 WHERE id_usuario BETWEEN 16 AND 20;
+
+-- ALTER TABLE usuarios_2 ADD CONSTRAINT fk_usuarios_roles FOREIGN KEY (id_rol) REFERENCES roles(id_rol);
 
 
 -- PASO 4
--- Tu código aquí
+-- SELECT usuarios_2.id_usuario, usuarios_2.nombre, usuarios_2.apellido, usuarios_2.email, usuarios_2.edad, roles.nombre_rol 
+-- FROM  usuarios_2
+-- JOIN roles 
+-- ON usuarios_2.id_rol = roles.id_rol;
 
 
 /* Relación tipo 1:N */
 -- PASO 1
--- Tu código aquí
+-- CREATE TABLE categorias (
+--   id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+--   nombre_categoria VARCHAR(100) NOT NULL
+-- )
 
 
 -- PASO 2
