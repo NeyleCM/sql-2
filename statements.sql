@@ -25,6 +25,9 @@
 -- UPDATE usuarios_2 SET id_rol = 4 WHERE id_usuario BETWEEN 16 AND 20;
 
 -- ALTER TABLE usuarios_2 ADD CONSTRAINT fk_usuarios_roles FOREIGN KEY (id_rol) REFERENCES roles(id_rol);
+-- ó ALTER TABLE usuarios ADD FOREIGN KEY (id_rol) REFERENCES roles(id_rol);
+
+-- Puede hacerse antes o depués del UPDATE la FOREIGN KEY - Es mejor hacerlo antes
 
 
 -- PASO 4
@@ -51,6 +54,14 @@
 -- UPDATE usuarios_2 SET id_categoria = 2 WHERE id_usuario IN (2, 6, 10, 14, 18);
 -- UPDATE usuarios_2 SET id_categoria = 3 WHERE id_usuario IN (3, 7, 11, 15, 19);
 -- UPDATE usuarios_2 SET id_categoria = 4 WHERE id_usuario IN (4, 8, 12, 16, 20); 
+-- UPDATE usuarios_2 SET id_categoria = 1 WHERE id_usuario IN (21, 25, 29, 33, 37); 
+-- UPDATE usuarios_2 SET id_categoria = 2 WHERE id_usuario IN (22, 26, 30, 34, 38);
+-- UPDATE usuarios_2 SET id_categoria = 3 WHERE id_usuario IN (23, 27, 31, 35, 39);
+-- UPDATE usuarios_2 SET id_categoria = 4 WHERE id_usuario IN (24, 28, 32, 36, 40); 
+-- UPDATE usuarios_2 SET id_categoria = 1 WHERE id_usuario IN (41, 43, 45, 47, 49); 
+-- UPDATE usuarios_2 SET id_categoria = 2 WHERE id_usuario IN (42, 44, 46, 48, 50);
+
+
 
 
 -- PASO 4
@@ -60,6 +71,8 @@
 -- ON usuarios_2.id_rol = roles.id_rol
 -- JOIN categorias
 -- ON usuarios_2.id_categoria = categorias.id_categoria;
+
+-- ALTER TABLE usuarios ADD FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria);
 
 /* Relación tipo N:M */
 -- PASO 1
@@ -104,4 +117,13 @@
 -- JOIN usuarios_categorias 
 -- ON usuarios_2.id_usuario = usuarios_categorias.id_usuario
 -- JOIN categorias 
--- ON usuarios_categorias.id_categoria = categorias.id_categoria;
+-- ON usuarios_categorias.id_categoria = categorias.id_categoria ORDER BY id_usuario ASC;Ç
+
+-- Ó MÁS SIMPLIFICADO
+
+/* SELECT usuarios.id_usuario, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.edad, roles.nombre_rol, categorias.nombre_categoria
+FROM usuarios
+JOIN (roles, usuarios_categorias, categorias)
+    ON  usuarios.id_rol = roles.id_rol
+    AND usuarios.id_categoria = usuarios_categorias.id_usuario
+    AND usuarios_categorias.id_categoria = categorias.id_categoria */
